@@ -1,0 +1,20 @@
+{
+  "name": "roombanker-pc-manual",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "docs:dev": "vitepress dev docs/manual",
+    "docs:check": "node scripts/check-manual-assets.mjs",
+    "docs:build": "vitepress build docs/manual",
+    "docs:preview": "vitepress preview docs/manual",
+    "docs:smoke": "playwright test --config playwright.manual-site.config.ts",
+    "repo:check": "node scripts/check-public-scope.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "vite": "^5.4.11",
+    "vitepress": "^1.6.3"
+  }
+}

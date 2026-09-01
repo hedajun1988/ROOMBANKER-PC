@@ -1,0 +1,4 @@
+node_modules/
+docs/manual/.vitepress/dist/
+playwright-report/
+test-results/

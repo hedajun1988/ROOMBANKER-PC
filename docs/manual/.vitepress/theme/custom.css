@@ -1,0 +1,6 @@
+:root { --vp-c-brand-1: #1f9d8b; --vp-c-brand-2: #167c70; --vp-c-brand-3: #0f625a; }
+.manual-shot { border: 1px solid var(--vp-c-divider); border-radius: 4px; width: 100%; background: #151b23; }
+.manual-note { border-left: 3px solid #e59d35; padding-left: 12px; }
+.VPDoc table { display: table; width: 100%; }
+.VPDoc th { white-space: nowrap; }
+@media (max-width: 640px) { .VPDoc table { display: block; overflow-x: auto; } }
