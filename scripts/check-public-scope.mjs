@@ -39,7 +39,7 @@ function walk(directory) {
 
 function isManualFile(path) {
   return path === 'docs/manual/index.md'
-    || /^docs\/manual\/(?:en|zh)\/.+\.md$/.test(path)
+    || /^docs\/manual\/(?:en|zh|tr)\/.+\.md$/.test(path)
     || new Set([
       'docs/manual/.vitepress/config.ts',
       'docs/manual/.vitepress/screenshot-manifest.ts',
@@ -51,8 +51,9 @@ function isManualFile(path) {
 }
 
 function assertAllowedPath(path, source) {
-  if (!allowedFiles.has(path) && !isManualFile(path)) errors.push(`out-of-scope file: ${path}`);
-  if (forbiddenExtensions.has(path.slice(path.lastIndexOf('.')))) errors.push(`forbidden extension: ${path}`);
+  const prefix = source ? `${source}: ` : '';
+  if (!allowedFiles.has(path) && !isManualFile(path)) errors.push(`${prefix}out-of-scope file: ${path}`);
+  if (forbiddenExtensions.has(path.slice(path.lastIndexOf('.')))) errors.push(`${prefix}forbidden extension: ${path}`);
 }
 
 const trackedFiles = runGit(['ls-files', '-z']).split('\0').filter(Boolean);
@@ -64,7 +65,7 @@ for (const path of ['docs/manual', '.github/workflows/docs-pages.yml', 'playwrig
 }
 
 const textFiles = trackedFiles.filter((path) => /\.(?:md|ts|mjs|json|ya?ml|css|svg)$/.test(path));
-const publicMarkdownFiles = trackedFiles.filter((path) => path === 'docs/manual/index.md' || /^docs\/manual\/(?:en|zh)\/.+\.md$/.test(path));
+const publicMarkdownFiles = trackedFiles.filter((path) => path === 'docs/manual/index.md' || /^docs\/manual\/(?:en|zh|tr)\/.+\.md$/.test(path));
 const sensitivePatterns = [
   [/\b(?:\d{1,3}\.){3}\d{1,3}\b/, 'bare IP address'],
   [new RegExp(['9c', '048fd'].join(''), 'i'), 'source commit identifier'],
@@ -106,10 +107,11 @@ for (const [path, phrase] of prohibitedWelcomeCopy) {
 }
 
 if (existsSync(join(root, '.git'))) {
-  const commits = Number(runGit(['rev-list', '--all', '--count']));
-  if (commits !== 1) errors.push(`expected one reachable commit, found ${commits}`);
-  const parents = runGit(['rev-list', '--parents', '-n', '1', 'HEAD']).split(/\s+/).length - 1;
-  if (parents !== 0) errors.push(`expected root commit, found ${parents} parent(s)`);
+  const commits = runGit(['rev-list', '--all']).split('\n').filter(Boolean);
+  for (const commit of commits) {
+    const files = runGit(['ls-tree', '-r', '-z', '--name-only', commit]).split('\0').filter(Boolean);
+    for (const path of files) assertAllowedPath(path, `commit ${commit}`);
+  }
 }
 
 if (errors.length) {

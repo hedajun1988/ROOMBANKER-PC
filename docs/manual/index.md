@@ -11,4 +11,7 @@ hero:
     - theme: alt
       text: 简体中文
       link: /zh/
+    - theme: alt
+      text: Türkçe
+      link: /tr/
 ---

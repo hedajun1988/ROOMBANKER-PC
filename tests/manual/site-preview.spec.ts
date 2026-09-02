@@ -14,10 +14,10 @@ const locales = siteConfig.locales as Record<string, { themeConfig: { sidebar: S
 const sidebarLinks = Object.values(locales).flatMap((locale) => collectLinks(locale.themeConfig.sidebar));
 const routes = [...new Set(['/', '/en/', '/zh/', ...sidebarLinks])];
 const mobileRoutes = [
-  '/en/', '/zh/',
-  '/en/guide/hubs-list-and-add', '/zh/guide/hubs-list-and-add',
-  '/en/guide/hub-remote-config', '/zh/guide/hub-remote-config',
-  '/en/guide/settings', '/zh/guide/settings'
+  '/en/', '/zh/', '/tr/',
+  '/en/guide/hubs-list-and-add', '/zh/guide/hubs-list-and-add', '/tr/guide/hubs-list-and-add',
+  '/en/guide/hub-remote-config', '/zh/guide/hub-remote-config', '/tr/guide/hub-remote-config',
+  '/en/guide/settings', '/zh/guide/settings', '/tr/guide/settings'
 ];
 
 const hubSidebarCases = [
@@ -32,12 +32,18 @@ const hubSidebarCases = [
     guide: '功能指南',
     parent: 'Hub 与注册',
     children: ['Hub 详情', '远程配置', '子设备']
+  },
+  {
+    locale: 'tr',
+    guide: 'Kılavuz',
+    parent: 'Hub’lar ve kayıt',
+    children: ['Hub ayrıntıları', 'Uzaktan yapılandırma', 'Alt cihazlar']
   }
 ];
 
 function guideItems(locale: string) {
   const sidebar = locales[locale].themeConfig.sidebar;
-  return sidebar.find((item) => item.text === (locale === 'zh' ? '功能指南' : 'Guide'))?.items || [];
+  return sidebar.find((item) => item.text === ({ en: 'Guide', zh: '功能指南', tr: 'Kılavuz' } as Record<string, string>)[locale])?.items || [];
 }
 
 function hubItem(locale: string) {
@@ -103,7 +109,8 @@ test('mobile Hub trees reveal the active child and parent navigation closes the 
 
   for (const item of [
     { locale: 'en', slug: 'hub-remote-config', parent: 'Hubs and registration', child: 'Remote configuration' },
-    { locale: 'zh', slug: 'hub-subdevices', parent: 'Hub 与注册', child: '子设备' }
+    { locale: 'zh', slug: 'hub-subdevices', parent: 'Hub 与注册', child: '子设备' },
+    { locale: 'tr', slug: 'hub-subdevices', parent: 'Hub’lar ve kayıt', child: 'Alt cihazlar' }
   ]) {
     await page.goto(`/ROOMBANKER-PC/${item.locale}/guide/${item.slug}`, { waitUntil: 'domcontentloaded' });
     await page.locator('.VPLocalNav .menu').click();
@@ -198,7 +205,8 @@ for (const viewport of [
 
     for (const [name, href] of [
       ['English', '/ROOMBANKER-PC/en/'],
-      ['简体中文', '/ROOMBANKER-PC/zh/']
+      ['简体中文', '/ROOMBANKER-PC/zh/'],
+      ['Türkçe', '/ROOMBANKER-PC/tr/']
     ]) {
       const link = actions.getByRole('link', { name, exact: true });
       await expect(link).toBeVisible();
@@ -228,6 +236,13 @@ test('remote-config confirmation tables retain four outcome columns', async ({ p
       restartAlt: '重启 Hub 确认',
       transferOutcome: '交换角色',
       restartOutcome: 'Hub 状态和监控结果'
+    },
+    {
+      route: '/tr/guide/hub-remote-config',
+      transferAlt: 'Süper Yönetici aktarımı onayı',
+      restartAlt: 'Hub yeniden başlatma onayı',
+      transferOutcome: 'rolü, cihaz-kullanıcı numarasını ve oda kapsamını değiştirir',
+      restartOutcome: 'Hub durumu ve izleme sonuçlarını'
     }
   ];
 
@@ -253,7 +268,8 @@ test('remote-config confirmation tables retain four outcome columns', async ({ p
 test('operation-log tables name the keyword and date-range controls in both languages', async ({ page }) => {
   for (const item of [
     { locale: 'en', keyword: 'Keyword', dateRange: 'Date range' },
-    { locale: 'zh', keyword: '关键词', dateRange: '日期范围' }
+    { locale: 'zh', keyword: '关键词', dateRange: '日期范围' },
+    { locale: 'tr', keyword: 'Anahtar sözcük', dateRange: 'Tarih aralığı' }
   ]) {
     await page.goto(`/ROOMBANKER-PC/${item.locale}/guide/operation-logs`, { waitUntil: 'domcontentloaded' });
     const table = page.locator('img[src$="/images/pages/operation-logs.png"]').locator('xpath=following::table[1]');
