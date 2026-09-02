@@ -13,9 +13,11 @@ const allowedFiles = new Set([
   'playwright.manual-site.config.ts',
   'scripts/check-manual-assets.mjs',
   'scripts/check-public-scope.mjs',
-  'scripts/generate-manual-zooms.mjs',
   'scripts/start-manual-preview.mjs',
   'tests/manual/site-preview.spec.ts'
+]);
+const retiredHistoricalFiles = new Set([
+  'scripts/generate-manual-zooms.mjs'
 ]);
 const forbiddenExtensions = new Set(['.env', '.pem', '.key', '.p12', '.pfx', '.map', '.zip', '.tar', '.gz', '.tgz', '.exe', '.dll', '.so', '.dylib']);
 const errors = [];
@@ -53,6 +55,7 @@ function isManualFile(path) {
 
 function assertAllowedPath(path, source) {
   const prefix = source ? `${source}: ` : '';
+  if (source && retiredHistoricalFiles.has(path)) return;
   if (!allowedFiles.has(path) && !isManualFile(path)) errors.push(`${prefix}out-of-scope file: ${path}`);
   if (forbiddenExtensions.has(path.slice(path.lastIndexOf('.')))) errors.push(`${prefix}forbidden extension: ${path}`);
 }
@@ -65,8 +68,8 @@ for (const path of ['docs/manual', '.github/workflows/docs-pages.yml', 'playwrig
   if (!existsSync(join(root, path))) errors.push(`missing required public file: ${path}`);
 }
 
-const textFiles = trackedFiles.filter((path) => /\.(?:md|ts|mjs|json|ya?ml|css|svg)$/.test(path));
-const publicMarkdownFiles = trackedFiles.filter((path) => path === 'docs/manual/index.md' || /^docs\/manual\/(?:en|zh|tr)\/.+\.md$/.test(path));
+const textFiles = trackedFiles.filter((path) => existsSync(join(root, path)) && /\.(?:md|ts|mjs|json|ya?ml|css|svg)$/.test(path));
+const publicMarkdownFiles = trackedFiles.filter((path) => existsSync(join(root, path)) && (path === 'docs/manual/index.md' || /^docs\/manual\/(?:en|zh|tr)\/.+\.md$/.test(path)));
 const sensitivePatterns = [
   [/\b(?:\d{1,3}\.){3}\d{1,3}\b/, 'bare IP address'],
   [new RegExp(['9c', '048fd'].join(''), 'i'), 'source commit identifier'],

@@ -22,10 +22,6 @@ Ayarlar mevcut oturum açan hesap için geçerlidir. Profil kaydetme ve dil seç
 
 ![Hesap silme onayı: 1 sonuç, 2 iptal, 3 onayla](/images/settings/settings-delete-account-confirm.png){.manual-shot}
 
-Önemli alan büyütülmüş:
-
-![Hesap silme onayı denetimleri](/images/zoom/settings-delete-account-confirm.png){.manual-shot}
-
 | No. | Denetim | Ön koşul ve işlem | Sonuç, hata, izin veya risk |
 |---|---|---|---|
 | 1 | Silme sonucu | İletişim kutusunun mevcut hesap işlemini belirttiğini doğrulayın. | Burada silme yalnızca mevcut hesabı siler; Hub’ları, cihazları veya yapılandırmayı silmez. |

@@ -22,10 +22,6 @@
 
 ![删除账号确认：1 删除后果，2 取消，3 确认](/images/settings/settings-delete-account-confirm.png){.manual-shot}
 
-关键区域放大：
-
-![删除账号确认控件](/images/zoom/settings-delete-account-confirm.png){.manual-shot}
-
 | 编号 | 控件 | 前置条件与操作 | 结果、失败、权限或风险 |
 |---|---|---|---|
 | 1 | 删除后果 | 核对对话框是否说明当前账号操作。 | 此处仅删除当前账号，不删除 Hub、设备或配置。 |

@@ -2,10 +2,6 @@
 
 ![Kayıt: 1 E-posta, 2 doğrulama kodu, 3 Kod gönder, 4 parola, 5 göster, 6 onay, 7 onayı göster, 8 Kaydol, 9 Oturum açmaya dön](/images/auth/register.png){.manual-shot}
 
-Önemli alan büyütülmüş:
-
-![Kayıt formu denetimleri](/images/zoom/registration-form-controls.png){.manual-shot}
-
 | No. | Denetim | Ön koşul, işlem, sonuç, hata veya izin |
 |---|---|---|
 | 1 | E-posta | Uygun bir e-posta adresi girin. `@dusun.com` ile biten platform hesapları kendi kendine kayıt olamaz. |

@@ -2,10 +2,6 @@
 
 ![找回密码：1 注册邮箱，2 图形码，3 刷新安全图片，4 邮件验证码，5 发送验证码，6 新密码，7 按住显示，8 重置密码，9 返回登录](/images/auth/recovery.png){.manual-shot}
 
-关键区域放大：
-
-![找回密码表单控件](/images/zoom/password-recovery-form-controls.png){.manual-shot}
-
 | 编号 | 控件 | 前置、操作、结果、失败或风险 |
 |---|---|---|
 | 1 | Registered Email（注册邮箱） | 输入已注册邮箱。 |

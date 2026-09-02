@@ -2,10 +2,6 @@
 
 ![注册：1 邮箱，2 验证码，3 发送验证码，4 密码，5 按住显示密码，6 确认密码，7 按住显示确认密码，8 注册，9 返回登录](/images/auth/register.png){.manual-shot}
 
-关键区域放大：
-
-![注册表单控件](/images/zoom/registration-form-controls.png){.manual-shot}
-
 | 编号 | 控件 | 前置、操作、结果、失败或权限 |
 |---|---|---|
 | 1 | 邮箱 | 输入允许注册的邮箱地址；以 `@dusun.com` 结尾的平台账号不能自行注册。 |

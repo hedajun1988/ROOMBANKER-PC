@@ -193,28 +193,33 @@ test('manual pages fit a 375px reading viewport', async ({ page }) => {
   }
 });
 
-test('localized key-area images open and close in the viewer without mobile overflow', async ({ page }) => {
+test('original manual screenshots open and close in the viewer with click and keyboard controls', async ({ page }) => {
   const cases = [
-    ['en', 'getting-started/login', '/images/zoom/login-form-controls.png'],
-    ['zh', 'getting-started/registration', '/images/zoom/registration-form-controls.png'],
-    ['tr', 'getting-started/password-recovery', '/images/zoom/password-recovery-form-controls.png'],
-    ['en', 'guide/hubs-list-and-add', '/images/zoom/hub-add-confirm.png'],
-    ['zh', 'guide/hub-remote-config', '/images/zoom/hub-super-admin-transfer-confirm.png'],
-    ['tr', 'guide/settings', '/images/zoom/settings-delete-account-confirm.png']
+    ['en', 'getting-started/login', '/images/auth/login.png', 'click'],
+    ['zh', 'getting-started/registration', '/images/auth/register.png', 'keyboard'],
+    ['tr', 'guide/hubs-list-and-add', '/images/hubs/hub-list-actions.png', 'click']
   ];
 
   await page.setViewportSize({ width: 375, height: 812 });
-  for (const [locale, chapter, image] of cases) {
+  for (const [locale, chapter, image, method] of cases) {
     await page.goto(`/ROOMBANKER-PC/${locale}/${chapter}`, { waitUntil: 'domcontentloaded' });
-    const keyArea = page.locator(`img[src$="${image}"]`);
-    await expect(keyArea).toBeVisible();
-    await keyArea.focus();
-    await page.keyboard.press('Enter');
+    const originalShot = page.locator(`img.manual-shot[src$="${image}"]`);
+    await expect(originalShot).toBeVisible();
+    if (method === 'click') {
+      await originalShot.click();
+    } else {
+      await originalShot.focus();
+      await page.keyboard.press('Enter');
+    }
     const viewer = page.locator('#manual-image-viewer');
     await expect(viewer).toBeVisible();
     await expect(viewer.locator('img')).toHaveAttribute('src', new RegExp(image.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
-    await page.keyboard.press('Escape');
+    if (method === 'click') {
+      await viewer.getByRole('button').click();
+    } else {
+      await page.keyboard.press('Escape');
+    }
     await expect(viewer).toBeHidden();
   }
 });

@@ -22,10 +22,6 @@ Settings applies to the current signed-in account. Profile save and language sel
 
 ![Delete Account confirmation: 1 consequence, 2 cancel, 3 confirm](/images/settings/settings-delete-account-confirm.png){.manual-shot}
 
-Key area enlarged:
-
-![Delete Account confirmation controls](/images/zoom/settings-delete-account-confirm.png){.manual-shot}
-
 | No. | Control | Prerequisite and operation | Result, failure, permission, or risk |
 |---|---|---|---|
 | 1 | Deletion consequence | Verify that the dialog names the current-account action. | Deleting here deletes only the current account. It does not delete Hubs, devices, or configuration. |

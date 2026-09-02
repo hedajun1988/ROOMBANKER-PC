@@ -2,10 +2,6 @@
 
 ![Registration: 1 Email, 2 verification code, 3 Send Code, 4 password, 5 reveal, 6 confirmation, 7 reveal confirmation, 8 Register, 9 Back to Login](/images/auth/register.png){.manual-shot}
 
-Key area enlarged:
-
-![Registration form controls](/images/zoom/registration-form-controls.png){.manual-shot}
-
 | No. | Control | Prerequisite, action, result, failure or permission |
 |---|---|---|
 | 1 | Email | Enter an eligible email address. Platform accounts ending in `@dusun.com` cannot self-register. |

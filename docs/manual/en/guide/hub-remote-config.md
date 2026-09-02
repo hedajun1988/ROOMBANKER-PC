@@ -47,10 +47,6 @@ Open **Remote Config** from the selected Hub. Available controls depend on the s
 
 ![Super Admin transfer confirmation: 1 consequence, 2 Cancel, 3 Confirm](/images/hubs/hub-super-admin-transfer-confirm.png){.manual-shot}
 
-Key area enlarged:
-
-![Super Admin transfer confirmation controls](/images/zoom/hub-super-admin-transfer-confirm.png){.manual-shot}
-
 | No. | Confirmation control | Action | Result, failure, or high-risk consequence |
 |---|---|---|---|
 | 1 | Consequence | Recheck source and target. | Confirmation exchanges role, device-user number, and room scope; clears PIN; moves notification selections; and clears the second and third PC phone numbers. |
@@ -66,10 +62,6 @@ Key area enlarged:
 | 3 | Restart Hub | Open confirmation after checking the operational window. | After confirmation, wait for Hub status and monitoring results. A failed action or no success message is not a confirmed restart. |
 
 ![Restart Hub confirmation: 1 warning, 2 Cancel, 3 Confirm](/images/hubs/hub-restart-confirm.png){.manual-shot}
-
-Key area enlarged:
-
-![Restart Hub confirmation controls](/images/zoom/hub-restart-confirm.png){.manual-shot}
 
 | No. | Confirmation control | Action | Result, failure, or risk |
 |---|---|---|---|

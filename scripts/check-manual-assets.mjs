@@ -6,12 +6,6 @@ const root = 'docs/manual';
 const publicRoot = join(root, 'public');
 const errors = [];
 const exemptAppendixImages = new Set();
-const zoomImages = new Set([
-  '/images/zoom/login-form-controls.png', '/images/zoom/registration-form-controls.png',
-  '/images/zoom/password-recovery-form-controls.png', '/images/zoom/hub-list-add-hub.png',
-  '/images/zoom/hub-add-confirm.png', '/images/zoom/hub-super-admin-transfer-confirm.png',
-  '/images/zoom/hub-restart-confirm.png', '/images/zoom/settings-delete-account-confirm.png'
-]);
 
 function walk(dir, extension) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((item) => {
@@ -27,7 +21,7 @@ function imagePaths(markdown) {
 function imageTableNumbers(markdown, image) {
   const imageIndex = markdown.indexOf(`](${image})`);
   if (imageIndex < 0) return [];
-  const after = markdown.slice(imageIndex + image.length + 3).replace(/!\[[^\]]*]\(\/images\/zoom\/[^)]+\.png\)\{\.manual-shot\}\s*/g, '');
+  const after = markdown.slice(imageIndex + image.length + 3);
   const nextImage = after.indexOf('](/images/');
   const section = nextImage >= 0 ? after.slice(0, nextImage) : after;
   return [...section.matchAll(/^\|\s*(\d+)(?:\s*-\s*(\d+))?\s*\|/gm)]
@@ -144,12 +138,12 @@ for (const appendix of walk(join(root, 'en/appendix'), '.md')) {
 }
 
 for (const image of markdownFiles) {
-  if (!manifestFiles.has(image) && !exemptAppendixImages.has(image) && !zoomImages.has(image)) addError(`Markdown image is absent from manifest: ${image}`);
+  if (!manifestFiles.has(image) && !exemptAppendixImages.has(image)) addError(`Markdown image is absent from manifest: ${image}`);
   if (!existsSync(join(publicRoot, image))) addError(`missing Markdown image: ${image}`);
 }
 for (const path of walk(join(publicRoot, 'images'), '.png')) {
   const image = `/${relative(publicRoot, path).replaceAll('\\', '/')}`;
-  if ((!manifestFiles.has(image) && !zoomImages.has(image)) || !markdownFiles.has(image)) addError(`orphan PNG: ${image}`);
+  if (!manifestFiles.has(image) || !markdownFiles.has(image)) addError(`orphan PNG: ${image}`);
 }
 
 if (errors.length) {

@@ -2,10 +2,6 @@
 
 ![Oturum açma ekranı: 1 E-posta, 2 Parolayı göster, 3 Beni hatırla, 4 Oturum aç, 5 Hesap oluştur, 6 Parolamı unuttum](/images/auth/login.png){.manual-shot}
 
-Önemli alan büyütülmüş:
-
-![Oturum açma formu denetimleri](/images/zoom/login-form-controls.png){.manual-shot}
-
 | No. | Düğme veya alan | Ön koşul, işlem, sonuç, hata veya risk |
 |---|---|---|
 | 1 | E-posta | Oturum açmadan önce kayıtlı e-posta adresini girin. Geçersiz veya bilinmeyen bilgiler sayfayı açık bırakır ve hata gösterir. |

@@ -2,10 +2,6 @@
 
 ![Hub list actions: 1 status, 2 mode, 3 company, 4 SN, 5 Add Hub, 6 devices, 7 arm/disarm, 8 details, 9 assign, 10 delete](/images/hubs/hub-list-actions.png){.manual-shot}
 
-Key area enlarged:
-
-![Add Hub control](/images/zoom/hub-list-add-hub.png){.manual-shot}
-
 | No. | Control | Use and result |
 |---|---|---|
 | 1 | Status filter | Limits the list by Hub status. |
@@ -54,10 +50,6 @@ Key area enlarged:
 | 4 | Close | Cancels the wizard without creating a binding. |
 
 ![Add Hub step 3: 1 search, 2 No Company, 3 company option, 4 Load more, 5 Confirm Add Hub](/images/hubs/hub-add-step-3.png){.manual-shot}
-
-Key area enlarged:
-
-![Confirm Add Hub control](/images/zoom/hub-add-confirm.png){.manual-shot}
 
 | No. | Step 3 control | Prerequisite, action, result, failure or permission |
 |---|---|---|

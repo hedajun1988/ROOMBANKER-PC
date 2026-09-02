@@ -47,10 +47,6 @@
 
 ![超级管理员转移确认：1 后果，2 取消，3 确认](/images/hubs/hub-super-admin-transfer-confirm.png){.manual-shot}
 
-关键区域放大：
-
-![超级管理员转移确认控件](/images/zoom/hub-super-admin-transfer-confirm.png){.manual-shot}
-
 | 编号 | 确认控件 | 操作 | 结果、失败或高风险后果 |
 |---|---|---|---|
 | 1 | 后果 | 再次核对来源和目标。 | 确认会交换角色、设备用户编号和房间范围；清除 PIN；移动通知选择；并清除 PC 第二、第三电话号码。 |
@@ -66,10 +62,6 @@
 | 3 | Restart Hub（重启 Hub） | 核对运维窗口后打开确认。 | 确认后等待 Hub 状态和监控结果。失败或没有成功提示不能视为已重启。 |
 
 ![重启 Hub 确认：1 警告，2 取消，3 确认](/images/hubs/hub-restart-confirm.png){.manual-shot}
-
-关键区域放大：
-
-![重启 Hub 确认控件](/images/zoom/hub-restart-confirm.png){.manual-shot}
 
 | 编号 | 确认控件 | 操作 | 结果、失败或风险 |
 |---|---|---|---|
