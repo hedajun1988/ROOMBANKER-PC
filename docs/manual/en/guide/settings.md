@@ -26,10 +26,10 @@ Settings applies to the current signed-in account. Profile save and language sel
 |---|---|---|---|
 | 1 | Deletion consequence | Verify that the dialog names the current-account action. | Deleting here deletes only the current account. It does not delete Hubs, devices, or configuration. |
 | 2 | Cancel | Close after deciding not to continue. | Sends no deletion request. |
-| 3 | Confirm | Confirm only after verifying the signed-in identity. | This is a high-risk, irreversible account action. After confirming, treat deletion as complete only when ROOMBANKER-PC returns to Login. If an error appears, confirm that the account is still available before trying again. |
+| 3 | Confirm | Confirm only after verifying the signed-in identity. | This is a high-risk, irreversible account action. After confirming, treat deletion as complete only when RBLINK DESKTOP returns to Login. If an error appears, confirm that the account is still available before trying again. |
 
 ![Logout: 1 Logout](/images/settings/settings-logout.png){.manual-shot}
 
 | No. | Control | Prerequisite and operation | Result, failure, permission, or risk |
 |---|---|---|---|
-| 1 | Logout | Select Logout to leave ROOMBANKER-PC in this browser. | Returns to Login. On a shared computer, close the browser and do not save sign-in information. |
+| 1 | Logout | Select Logout to leave RBLINK DESKTOP in this browser. | Returns to Login. On a shared computer, close the browser and do not save sign-in information. |

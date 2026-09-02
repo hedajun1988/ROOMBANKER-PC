@@ -1,6 +1,6 @@
 # Version and capabilities
 
-This manual applies to ROOMBANKER-PC v1.0.0 and was updated on 2026-08-31.
+This manual applies to RBLINK DESKTOP v1.0.0 and was updated on 2026-08-31.
 
 Times are shown in the current computer's local time zone.
 

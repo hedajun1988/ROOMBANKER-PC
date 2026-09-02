@@ -1,4 +1,4 @@
-# ROOMBANKER-PC Manual
+# RBLINK DESKTOP Manual
 
 Public bilingual product manual and its GitHub Pages publication checks.
 

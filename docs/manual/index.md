@@ -1,7 +1,7 @@
 ---
 layout: home
 hero:
-  name: ROOMBANKER-PC
+  name: RBLINK DESKTOP
   text: User Manual
   tagline: Select a language to start.
   actions:
