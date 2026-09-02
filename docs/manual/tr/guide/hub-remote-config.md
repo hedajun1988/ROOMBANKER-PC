@@ -47,6 +47,10 @@ Seçili Hub’dan **Uzak yapılandırma**yı açın. Kullanılabilir denetimler 
 
 ![Süper Yönetici aktarımı onayı: 1 sonuç, 2 İptal, 3 Onayla](/images/hubs/hub-super-admin-transfer-confirm.png){.manual-shot}
 
+Önemli alan büyütülmüş:
+
+![Süper Yönetici aktarım onayı denetimleri](/images/zoom/hub-super-admin-transfer-confirm.png){.manual-shot}
+
 | No. | Onay denetimi | İşlem | Sonuç, hata veya yüksek risk sonucu |
 |---|---|---|---|
 | 1 | Sonuç | Kaynağı ve hedefi tekrar denetleyin. | Onay rolü, cihaz-kullanıcı numarasını ve oda kapsamını değiştirir; PIN’i temizler, bildirim seçimlerini taşır ve ikinci/üçüncü PC telefon numaralarını siler. |
@@ -62,6 +66,10 @@ Seçili Hub’dan **Uzak yapılandırma**yı açın. Kullanılabilir denetimler 
 | 3 | Hub’ı yeniden başlat | İşlem penceresini denetledikten sonra onayı açın. | Onaydan sonra Hub durumu ve izleme sonuçlarını bekleyin. Başarısız işlem veya başarı mesajı yokluğu yeniden başlatmayı doğrulamaz. |
 
 ![Hub yeniden başlatma onayı: 1 uyarı, 2 İptal, 3 Onayla](/images/hubs/hub-restart-confirm.png){.manual-shot}
+
+Önemli alan büyütülmüş:
+
+![Hub yeniden başlatma onayı denetimleri](/images/zoom/hub-restart-confirm.png){.manual-shot}
 
 | No. | Onay denetimi | İşlem | Sonuç, hata veya risk |
 |---|---|---|---|

@@ -13,6 +13,7 @@ const allowedFiles = new Set([
   'playwright.manual-site.config.ts',
   'scripts/check-manual-assets.mjs',
   'scripts/check-public-scope.mjs',
+  'scripts/generate-manual-zooms.mjs',
   'scripts/start-manual-preview.mjs',
   'tests/manual/site-preview.spec.ts'
 ]);

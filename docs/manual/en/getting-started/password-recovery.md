@@ -2,6 +2,10 @@
 
 ![Password recovery: 1 registered email, 2 image code, 3 refresh image, 4 email code, 5 Send Code, 6 new password, 7 reveal, 8 Reset Password, 9 Back to Login](/images/auth/recovery.png){.manual-shot}
 
+Key area enlarged:
+
+![Password recovery form controls](/images/zoom/password-recovery-form-controls.png){.manual-shot}
+
 | No. | Control | Prerequisite, action, result, failure or risk |
 |---|---|---|
 | 1 | Registered Email | Enter the registered address. |

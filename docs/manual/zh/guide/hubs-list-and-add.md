@@ -2,6 +2,10 @@
 
 ![Hub 列表操作：1 状态，2 模式，3 公司，4 SN，5 添加 Hub，6 设备数，7 布撤防，8 详情，9 指派，10 删除](/images/hubs/hub-list-actions.png){.manual-shot}
 
+关键区域放大：
+
+![添加 Hub 控件](/images/zoom/hub-list-add-hub.png){.manual-shot}
+
 | 编号 | 控件 | 用途和结果 |
 |---|---|---|
 | 1 | 状态筛选 | 按 Hub 状态缩小列表。 |
@@ -50,6 +54,10 @@
 | 4 | Close（关闭） | 取消向导，不创建绑定。 |
 
 ![添加 Hub 第 3 步：1 搜索，2 不选择公司，3 公司选项，4 加载更多，5 确认添加 Hub](/images/hubs/hub-add-step-3.png){.manual-shot}
+
+关键区域放大：
+
+![确认添加 Hub 控件](/images/zoom/hub-add-confirm.png){.manual-shot}
 
 | 编号 | 第 3 步控件 | 前置、操作、结果、失败或权限 |
 |---|---|---|

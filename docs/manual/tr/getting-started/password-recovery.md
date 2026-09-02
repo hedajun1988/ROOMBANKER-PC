@@ -2,6 +2,10 @@
 
 ![Parola kurtarma: 1 kayıtlı e-posta, 2 resim kodu, 3 resmi yenile, 4 e-posta kodu, 5 Kod gönder, 6 yeni parola, 7 göster, 8 Parolayı sıfırla, 9 Oturum açmaya dön](/images/auth/recovery.png){.manual-shot}
 
+Önemli alan büyütülmüş:
+
+![Parola kurtarma formu denetimleri](/images/zoom/password-recovery-form-controls.png){.manual-shot}
+
 | No. | Denetim | Ön koşul, işlem, sonuç, hata veya risk |
 |---|---|---|
 | 1 | Kayıtlı e-posta | Kayıtlı adresi girin. |

@@ -1,5 +1,12 @@
 :root { --vp-c-brand-1: #1f9d8b; --vp-c-brand-2: #167c70; --vp-c-brand-3: #0f625a; }
-.manual-shot { border: 1px solid var(--vp-c-divider); border-radius: 4px; width: 100%; background: #151b23; }
+.manual-shot { border: 1px solid var(--vp-c-divider); border-radius: 4px; width: 100%; background: #151b23; cursor: zoom-in; }
+.manual-shot:focus-visible { outline: 3px solid var(--vp-c-brand-1); outline-offset: 3px; }
+.manual-image-viewer { box-sizing: border-box; width: min(96vw, 1440px); max-width: none; max-height: 92vh; margin: auto; padding: 48px 16px 16px; overflow: auto; border: 1px solid var(--vp-c-divider); border-radius: 6px; background: var(--vp-c-bg); color: var(--vp-c-text-1); }
+.manual-image-viewer::backdrop { background: rgb(0 0 0 / 78%); }
+.manual-image-viewer > button { position: fixed; top: max(12px, 4vh); right: max(12px, 4vw); z-index: 1; min-width: 44px; min-height: 44px; border: 1px solid var(--vp-c-divider); border-radius: 4px; background: var(--vp-c-bg); color: var(--vp-c-text-1); cursor: pointer; }
+.manual-image-viewer > div { min-width: min-content; }
+.manual-image-viewer img { display: block; width: auto; max-width: none; height: auto; max-height: none; margin: 0 auto; }
+@media (max-width: 640px) { .manual-image-viewer { width: 100vw; max-height: 100vh; padding: 56px 12px 12px; border-radius: 0; } .manual-image-viewer > button { top: 8px; right: 8px; } .manual-image-viewer img { max-width: none; } }
 .manual-note { border-left: 3px solid #e59d35; padding-left: 12px; }
 .VPDoc table { display: table; width: 100%; }
 .VPDoc th { white-space: nowrap; }

@@ -2,6 +2,10 @@
 
 ![Login screen: 1 Email, 2 Password reveal, 3 Remember me, 4 Sign In, 5 Create Account, 6 Forgot Password](/images/auth/login.png){.manual-shot}
 
+Key area enlarged:
+
+![Login form controls](/images/zoom/login-form-controls.png){.manual-shot}
+
 | No. | Button or field | Prerequisite, action, result, failure or risk |
 |---|---|---|
 | 1 | Email | Enter a registered email address before signing in. Invalid or unknown credentials keep the Login page open and show an error. |

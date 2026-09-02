@@ -2,6 +2,10 @@
 
 ![Hub liste işlemleri: 1 durum, 2 mod, 3 şirket, 4 SN, 5 Hub ekle, 6 cihazlar, 7 kur/devre dışı bırak, 8 ayrıntılar, 9 ata, 10 sil](/images/hubs/hub-list-actions.png){.manual-shot}
 
+Önemli alan büyütülmüş:
+
+![Hub ekle denetimi](/images/zoom/hub-list-add-hub.png){.manual-shot}
+
 | No. | Denetim | Kullanım ve sonuç |
 |---|---|---|
 | 1 | Durum filtresi | Listeyi Hub durumuna göre sınırlar. |
@@ -50,6 +54,10 @@
 | 4 | Kapat | Bağ oluşturmadan sihirbazı iptal eder. |
 
 ![Hub ekle adım 3: 1 ara, 2 Şirket yok, 3 şirket seçeneği, 4 Daha fazla yükle, 5 Hub eklemeyi onayla](/images/hubs/hub-add-step-3.png){.manual-shot}
+
+Önemli alan büyütülmüş:
+
+![Hub eklemeyi onayla denetimi](/images/zoom/hub-add-confirm.png){.manual-shot}
 
 | No. | Adım 3 denetimi | Ön koşul, işlem, sonuç, hata veya izin |
 |---|---|---|

@@ -144,11 +144,12 @@ test('published bilingual manual has no broken pages, assets, or base links', as
     expect(response.status(), route).toBeLessThan(400);
     await page.goto(`/ROOMBANKER-PC${route}`, { waitUntil: 'domcontentloaded' });
     await expect(page.locator(route === '/' ? '.VPHero' : 'main')).toBeVisible({ timeout: 10_000 });
-    await expect.poll(async () => page.locator('img').evaluateAll((nodes) => nodes.every((image) => image.complete && image.naturalWidth > 0)), {
+    const documentImages = page.locator('img[src]');
+    await expect.poll(async () => documentImages.evaluateAll((nodes) => nodes.every((image) => image.complete && image.naturalWidth > 0)), {
       message: `${route}: document images did not load`,
       timeout: 10_000
     }).toBeTruthy();
-    const images = await page.locator('img').evaluateAll((nodes) => nodes.map((image) => ({
+    const images = await documentImages.evaluateAll((nodes) => nodes.map((image) => ({
       complete: image.complete,
       naturalWidth: image.naturalWidth,
       src: image.getAttribute('src') || ''
@@ -189,6 +190,32 @@ test('manual pages fit a 375px reading viewport', async ({ page }) => {
     }));
     expect(dimensions.scrollWidth, `${route}: html overflow`).toBeLessThanOrEqual(dimensions.width);
     expect(dimensions.bodyScrollWidth, `${route}: body overflow`).toBeLessThanOrEqual(dimensions.width);
+  }
+});
+
+test('localized key-area images open and close in the viewer without mobile overflow', async ({ page }) => {
+  const cases = [
+    ['en', 'getting-started/login', '/images/zoom/login-form-controls.png'],
+    ['zh', 'getting-started/registration', '/images/zoom/registration-form-controls.png'],
+    ['tr', 'getting-started/password-recovery', '/images/zoom/password-recovery-form-controls.png'],
+    ['en', 'guide/hubs-list-and-add', '/images/zoom/hub-add-confirm.png'],
+    ['zh', 'guide/hub-remote-config', '/images/zoom/hub-super-admin-transfer-confirm.png'],
+    ['tr', 'guide/settings', '/images/zoom/settings-delete-account-confirm.png']
+  ];
+
+  await page.setViewportSize({ width: 375, height: 812 });
+  for (const [locale, chapter, image] of cases) {
+    await page.goto(`/ROOMBANKER-PC/${locale}/${chapter}`, { waitUntil: 'domcontentloaded' });
+    const keyArea = page.locator(`img[src$="${image}"]`);
+    await expect(keyArea).toBeVisible();
+    await keyArea.focus();
+    await page.keyboard.press('Enter');
+    const viewer = page.locator('#manual-image-viewer');
+    await expect(viewer).toBeVisible();
+    await expect(viewer.locator('img')).toHaveAttribute('src', new RegExp(image.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+    await page.keyboard.press('Escape');
+    await expect(viewer).toBeHidden();
   }
 });
 

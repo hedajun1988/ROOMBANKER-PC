@@ -2,6 +2,10 @@
 
 ![登录页：1 邮箱，2 密码显示，3 记住邮箱，4 登录，5 创建账号，6 忘记密码](/images/auth/login.png){.manual-shot}
 
+关键区域放大：
+
+![登录表单控件](/images/zoom/login-form-controls.png){.manual-shot}
+
 | 编号 | 按钮或字段 | 前置、操作、结果、失败或风险 |
 |---|---|---|
 | 1 | Email（邮箱） | 登录前输入已注册邮箱；凭据无效或邮箱不存在时留在登录页。 |
